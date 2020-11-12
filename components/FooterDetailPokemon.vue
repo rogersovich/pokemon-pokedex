@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row justify="center" align="center">
-      <v-col cols="12" sm="6" md="6">
+      <v-col cols="6" sm="6" md="6">
         <nuxt-link
           :to="{
             name: 'pokemon-slug',
@@ -19,7 +19,7 @@
           />
         </nuxt-link>
       </v-col>
-      <v-col cols="12" sm="6" md="6" class="text-right">
+      <v-col cols="6" sm="6" md="6" class="text-right">
         <nuxt-link
           :to="{
             name: 'pokemon-slug',

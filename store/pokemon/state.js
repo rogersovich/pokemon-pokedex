@@ -4,5 +4,6 @@ export default () => ({
   pokemons: [],
   pokemonNext: {},
   pokemonPrev: {},
+  pokemonEvolution: {},
   next: {},
 })

@@ -75,7 +75,9 @@
       >
         Load More
       </v-btn>
-      <lottie v-if="loading" :height="100" :options="lottieOptions" />
+      <v-btn v-if="loading" text large dark>
+        <lottie v-if="loading" :height="150" :options="lottieOptions" />
+      </v-btn>
     </div>
   </v-container>
 </template>

@@ -27,3 +27,7 @@ export const SET_POKEMON_NEXT = function (state, payload) {
 export const SET_POKEMON_PREV = function (state, payload) {
   state.pokemonPrev = payload
 }
+
+export const SET_POKEMON_EVOLUTION = function (state, payload) {
+  state.pokemonEvolution = payload
+}

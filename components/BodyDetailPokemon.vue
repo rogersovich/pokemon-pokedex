@@ -15,20 +15,25 @@
         ></v-img>
       </v-col>
       <v-col cols="12" sm="6" md="6">
-        <v-card max-height="400" height="400" rounded="xl" class="pa-6">
-          <v-tabs v-model="tab" align-with-title>
+        <v-card rounded="xl" class="pa-4">
+          <v-tabs v-model="tab" show-arrows align-with-title centered>
             <v-tab v-for="item in items" :key="item">{{ item }}</v-tab>
           </v-tabs>
 
           <v-tabs-items v-model="tab">
-            <v-tab-item v-for="item in items" :key="item">
+            <tab-about-detail></tab-about-detail>
+            <tab-stat-detail></tab-stat-detail>
+            <tab-evolution-detail></tab-evolution-detail>
+            <v-tab-item>
               <v-card flat>
-                <v-card-text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </v-card-text>
+                <v-card-title
+                  class="tw-text-gray-800 tw-font-normal"
+                  v-text="
+                    $store.state.pokemon.pokemonSpecies.flavor_text_entries[3]
+                      .flavor_text
+                  "
+                >
+                </v-card-title>
               </v-card>
             </v-tab-item>
           </v-tabs-items>

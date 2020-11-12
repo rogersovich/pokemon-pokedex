@@ -24,7 +24,6 @@ export const addPokemonMore = async function ({ commit }, payload) {
 export const getPokemon = async function ({ commit }, payload) {
   try {
     const { data } = await this.$axios.get(`${END_POINT}/${payload}`)
-    const next = data.id + 1
 
     if (data.id === 1) {
       const prev = 887
@@ -36,11 +35,20 @@ export const getPokemon = async function ({ commit }, payload) {
       commit('SET_POKEMON_PREV', dataPrev.data)
     }
 
-    const dataNext = await this.$axios.get(`${END_POINT}/${next}`)
+    if (data.id === 887) {
+      const next = 1
+      const dataNext = await this.$axios.get(`${END_POINT}/${next}`)
+      commit('SET_POKEMON_NEXT', dataNext.data)
+    } else {
+      const next = data.id + 1
+      const dataNext = await this.$axios.get(`${END_POINT}/${next}`)
+      commit('SET_POKEMON_NEXT', dataNext.data)
+    }
+
+    const chainEvo = await this.$axios.get(`evolution-chain/${data.id}`)
+    commit('SET_POKEMON_EVOLUTION', chainEvo.data.chain)
 
     commit('SET_POKEMON', data)
-
-    commit('SET_POKEMON_NEXT', dataNext.data)
   } catch (error) {
     // error
   }
