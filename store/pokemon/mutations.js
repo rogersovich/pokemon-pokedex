@@ -16,6 +16,14 @@ export const SET_POKEMON_URL = function (state, payload) {
   state.next = payload
 }
 
-// export const SET_POKEMONS = function (state, payload) {
-//   state.pokemons = payload
-// }
+export const SET_POKEMON_SPECIES = function (state, payload) {
+  state.pokemonSpecies = payload
+}
+
+export const SET_POKEMON_NEXT = function (state, payload) {
+  state.pokemonNext = payload
+}
+
+export const SET_POKEMON_PREV = function (state, payload) {
+  state.pokemonPrev = payload
+}

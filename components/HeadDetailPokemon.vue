@@ -15,30 +15,8 @@
           {{ $store.state.pokemon.pokemon.name }}
         </h1>
       </v-col>
-      <v-col cols="12" sm="4" md="4">
-        <v-btn
-          v-for="(type, i) in $store.state.pokemon.pokemon.types"
-          :key="i"
-          rounded
-          depressed
-          nuxt
-          dark
-          large
-          width="120"
-          color="#60DF71"
-          :to="{ name: 'pokemon' }"
-          class="tw-mr-4 tw-capitalize tw-font-normal tw-text-2xl tw-tracking-normal"
-        >
-          {{ type.type.name }}
-        </v-btn>
-      </v-col>
-      <v-col cols="12" sm="2" md="2">
-        <h1
-          class="tw-text-4xl tw-text-right tw-capitalize tw-text-white tw-text-left tw-leading-tight tw-font-medium"
-        >
-          #00{{ $store.state.pokemon.pokemon.id }}
-        </h1>
-      </v-col>
+      <button-type></button-type>
+      <number-pokemon></number-pokemon>
     </v-row>
   </div>
 </template>

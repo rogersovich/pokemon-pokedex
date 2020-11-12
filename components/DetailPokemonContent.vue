@@ -2,6 +2,7 @@
   <v-container class="tw-py-16 mx-auto">
     <head-detail-pokemon></head-detail-pokemon>
     <body-detail-pokemon></body-detail-pokemon>
+    <footer-detail-pokemon></footer-detail-pokemon>
   </v-container>
 </template>
 

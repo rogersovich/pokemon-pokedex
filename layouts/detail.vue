@@ -1,13 +1,10 @@
 <template>
-  <v-app dark>
-    <v-main style="background: #68cfc5">
-      <nuxt />
-    </v-main>
-  </v-app>
+  <background-detail></background-detail>
 </template>
 
 <script>
 export default {
+  name: 'Detail',
   data() {
     return {}
   },

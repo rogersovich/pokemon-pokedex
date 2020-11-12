@@ -23,10 +23,9 @@
         md="4"
       >
         <v-card
-          color="#4DB6AC"
+          color="#dfe4ea"
           rounded="lg"
           flat
-          dark
           class="pa-4"
           max-height="250"
           height="200"
@@ -56,9 +55,7 @@
                 contain
                 position="right"
                 :src="
-                  'https://pokeres.bastionbot.org/images/pokemon/' +
-                  (i + 1) +
-                  '.png'
+                  'https://cdn.traction.one/pokedex/pokemon/' + (i + 1) + '.png'
                 "
               ></v-img>
             </v-col>

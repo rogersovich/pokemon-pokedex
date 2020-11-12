@@ -11,6 +11,7 @@ export default {
   },
   async asyncData({ store, params }) {
     await store.dispatch('pokemon/getPokemon', params.slug)
+    await store.dispatch('pokemon/getPokemonSpecies', params.slug)
   },
 }
 </script>
