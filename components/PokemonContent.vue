@@ -12,6 +12,15 @@
         >
           Pokemons
         </h1>
+        <v-text-field
+          v-model="search"
+          :disabled="loading"
+          hide-details="auto"
+          label="Cari nama pokemon disini"
+          append-outer-icon="mdi-refresh"
+          @keypress.enter="searchData()"
+          @click:append-outer="getAllPokemons(), clearInput()"
+        ></v-text-field>
       </v-col>
     </v-row>
     <v-row>
@@ -52,6 +61,15 @@
             </v-col>
             <v-col cols="6" sm="6" md="4">
               <v-img
+                v-if="$store.state.pokemon.search"
+                contain
+                position="right"
+                :src="
+                  'https://cdn.traction.one/pokedex/pokemon/' + data.id + '.png'
+                "
+              ></v-img>
+              <v-img
+                v-else
                 contain
                 position="right"
                 :src="
@@ -65,7 +83,11 @@
     </v-row>
     <div class="text-center tw-mt-4">
       <v-btn
-        v-if="$store.state.pokemon.next !== null && !loading"
+        v-if="
+          $store.state.pokemon.next !== null &&
+          !loading &&
+          !$store.state.pokemon.search
+        "
         depressed
         large
         dark
@@ -75,7 +97,7 @@
       >
         Load More
       </v-btn>
-      <v-btn v-if="loading" text large dark>
+      <v-btn v-if="loading && !$store.state.pokemon.search" text large dark>
         <lottie v-if="loading" :height="150" :options="lottieOptions" />
       </v-btn>
     </div>
@@ -92,16 +114,28 @@ export default {
   },
   data() {
     return {
+      search: '',
       loading: false,
       lottieOptions: { animationData: animationData.default },
     }
   },
   methods: {
+    clearInput() {
+      this.search = ''
+    },
+    async getAllPokemons() {
+      await this.$store.dispatch('pokemon/getPokemons')
+    },
     async loadMore() {
       this.loading = true
       const urlNext = this.$store.state.pokemon.next.split('?')[1]
       await this.$store.dispatch('pokemon/addPokemonMore', urlNext)
       this.page++
+      this.loading = false
+    },
+    async searchData() {
+      this.loading = true
+      await this.$store.dispatch('pokemon/searchPokemon', this.search)
       this.loading = false
     },
   },

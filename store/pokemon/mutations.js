@@ -8,8 +8,16 @@ export const SET_ADD_POKEMON = function (state, payload) {
   })
 }
 
+export const SET_SEARCH_POKEMON = function (state, payload) {
+  state.pokemons.push(payload)
+}
+
 export const REMOVE_POKEMON_DATA = function (state, payload) {
   state.pokemons = []
+}
+
+export const SET_SEARCH_STATUS = function (state, payload) {
+  state.search = payload
 }
 
 export const SET_POKEMON_URL = function (state, payload) {

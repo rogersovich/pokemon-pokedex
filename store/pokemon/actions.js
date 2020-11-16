@@ -3,6 +3,7 @@ const END_POINT = 'pokemon'
 export const getPokemons = async function ({ commit }, payload) {
   try {
     commit('REMOVE_POKEMON_DATA')
+    commit('SET_SEARCH_STATUS', false)
     const { data } = await this.$axios.get(`${END_POINT}`)
     commit('SET_POKEMON_URL', data.next)
     commit('SET_ADD_POKEMON', data.results)
@@ -16,6 +17,17 @@ export const addPokemonMore = async function ({ commit }, payload) {
     const { data } = await this.$axios.get(`${END_POINT}/?${payload}`)
     commit('SET_POKEMON_URL', data.next)
     commit('SET_ADD_POKEMON', data.results)
+  } catch (error) {
+    // error
+  }
+}
+
+export const searchPokemon = async function ({ commit }, payload) {
+  try {
+    commit('REMOVE_POKEMON_DATA')
+    commit('SET_SEARCH_STATUS', true)
+    const { data } = await this.$axios.get(`${END_POINT}/${payload}`)
+    commit('SET_SEARCH_POKEMON', data)
   } catch (error) {
     // error
   }
@@ -45,9 +57,6 @@ export const getPokemon = async function ({ commit }, payload) {
       commit('SET_POKEMON_NEXT', dataNext.data)
     }
 
-    const chainEvo = await this.$axios.get(`evolution-chain/${data.id}`)
-    commit('SET_POKEMON_EVOLUTION', chainEvo.data.chain)
-
     commit('SET_POKEMON', data)
   } catch (error) {
     // error
@@ -57,6 +66,11 @@ export const getPokemon = async function ({ commit }, payload) {
 export const getPokemonSpecies = async function ({ commit }, payload) {
   try {
     const { data } = await this.$axios.get(`pokemon-species/${payload}`)
+    const id = data.evolution_chain.url
+      .split('https://pokeapi.co/api/v2/evolution-chain/')[1]
+      .replace('/', '')
+    const chainEvo = await this.$axios.get(`evolution-chain/${id}`)
+    commit('SET_POKEMON_EVOLUTION', chainEvo.data.chain)
     commit('SET_POKEMON_SPECIES', data)
   } catch (error) {
     // error

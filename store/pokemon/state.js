@@ -6,4 +6,5 @@ export default () => ({
   pokemonPrev: {},
   pokemonEvolution: {},
   next: {},
+  search: false,
 })

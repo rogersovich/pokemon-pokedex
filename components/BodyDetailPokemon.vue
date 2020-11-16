@@ -24,18 +24,7 @@
             <tab-about-detail></tab-about-detail>
             <tab-stat-detail></tab-stat-detail>
             <tab-evolution-detail></tab-evolution-detail>
-            <v-tab-item>
-              <v-card flat>
-                <v-card-title
-                  class="tw-text-gray-800 tw-font-normal"
-                  v-text="
-                    $store.state.pokemon.pokemonSpecies.flavor_text_entries[3]
-                      .flavor_text
-                  "
-                >
-                </v-card-title>
-              </v-card>
-            </v-tab-item>
+            <tab-move-detail></tab-move-detail>
           </v-tabs-items>
         </v-card>
       </v-col>

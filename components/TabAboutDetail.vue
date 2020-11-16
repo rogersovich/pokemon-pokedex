@@ -27,12 +27,12 @@
           <v-card-text
             class="py-0 tw-text-gray-800 tw-font-normal tw-text-lg mb-2"
           >
-            {{ $store.state.pokemon.pokemon.height + ' m' }}
+            {{ $store.state.pokemon.pokemon.height / 10 + ' m' }}
           </v-card-text>
           <v-card-text
             class="py-0 tw-text-gray-800 tw-font-normal tw-text-lg mb-2"
           >
-            {{ $store.state.pokemon.pokemon.weight + ' kg' }}
+            {{ $store.state.pokemon.pokemon.weight / 10 + ' kg' }}
           </v-card-text>
         </v-col>
         <v-col cols="12" md="12" class="pb-0">
