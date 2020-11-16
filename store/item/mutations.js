@@ -24,10 +24,6 @@ export const SET_ITEM_URL = function (state, payload) {
   state.next = payload
 }
 
-export const SET_ITEM_SPECIES = function (state, payload) {
-  state.itemSpecies = payload
-}
-
 export const SET_ITEM_NEXT = function (state, payload) {
   state.itemNext = payload
 }

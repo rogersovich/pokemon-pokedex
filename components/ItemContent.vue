@@ -109,7 +109,7 @@ export default {
       this.search = ''
     },
     async getAllItems() {
-      await this.$store.dispatch('item/getItemns')
+      await this.$store.dispatch('item/getItems')
     },
     async loadMore() {
       this.loading = true

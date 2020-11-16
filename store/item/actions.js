@@ -62,12 +62,3 @@ export const getItem = async function ({ commit }, payload) {
     // error
   }
 }
-
-export const getItemSpecies = async function ({ commit }, payload) {
-  try {
-    const { data } = await this.$axios.get(`Item-species/${payload}`)
-    commit('SET_ITEM_SPECIES', data)
-  } catch (error) {
-    // error
-  }
-}
