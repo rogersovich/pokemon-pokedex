@@ -72,23 +72,27 @@
         </v-card>
       </v-col>
       <v-col cols="12" sm="4" md="4">
-        <v-card color="#FFD54F" rounded="lg" flat dark>
-          <v-row>
-            <v-col cols="6" sm="6" md="6">
-              <v-card-title class="tw-text-2xl tw-tracking-wide tw-font-normal">
-                Items
-              </v-card-title>
-            </v-col>
-            <v-col cols="6" sm="6" md="6">
-              <v-img
-                contain
-                src="https://ik.imagekit.io/1akf8cdsyg/pokeballs_NycEcg800i3.svg"
-                height="80"
-                position="right"
-              ></v-img>
-            </v-col>
-          </v-row>
-        </v-card>
+        <nuxt-link :to="{ name: 'item' }">
+          <v-card color="#FFD54F" rounded="lg" flat dark>
+            <v-row>
+              <v-col cols="6" sm="6" md="6">
+                <v-card-title
+                  class="tw-text-2xl tw-tracking-wide tw-font-normal"
+                >
+                  Items
+                </v-card-title>
+              </v-col>
+              <v-col cols="6" sm="6" md="6">
+                <v-img
+                  contain
+                  src="https://ik.imagekit.io/1akf8cdsyg/pokeballs_NycEcg800i3.svg"
+                  height="80"
+                  position="right"
+                ></v-img>
+              </v-col>
+            </v-row>
+          </v-card>
+        </nuxt-link>
       </v-col>
       <v-col cols="12" sm="4" md="4">
         <v-card color="#7986CB" rounded="lg" flat dark>

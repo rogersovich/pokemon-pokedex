@@ -40,7 +40,7 @@
           height="200"
         >
           <v-row>
-            <v-col cols="6" sm="6" md="8">
+            <v-col cols="8" sm="6" md="8">
               <h1
                 class="tw-text-3xl tw-tracking-wide tw-font-medium tw-mb-2 tw-capitalize"
               >
@@ -59,7 +59,7 @@
                 Detail
               </v-btn>
             </v-col>
-            <v-col cols="6" sm="6" md="4">
+            <v-col cols="4" sm="6" md="4">
               <v-img
                 v-if="$store.state.pokemon.search"
                 contain

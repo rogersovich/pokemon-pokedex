@@ -7,13 +7,13 @@
         align="center"
         justify="center"
       >
-        <v-col cols="12" md="4" class="tw-capitalize">
+        <v-col cols="4" md="4" class="tw-capitalize">
           {{ data.stat.name }}
         </v-col>
-        <v-col cols="12" md="2" class="text-center">
+        <v-col cols="2" md="2" class="text-center">
           {{ data.base_stat }}
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="6" md="6">
           <v-progress-linear
             :value="data.base_stat"
             :color="data.base_stat < 50 ? '#ffb158' : '#55E288'"

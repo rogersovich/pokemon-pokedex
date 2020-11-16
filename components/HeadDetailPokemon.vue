@@ -1,10 +1,13 @@
 <template>
   <div class="tw-mb-10">
     <v-row>
-      <v-col cols="12" sm="6" md="6">
+      <v-col cols="6" sm="6" md="6">
         <nuxt-link :to="{ name: 'pokemon' }">
           <v-icon x-large dark>mdi-arrow-left</v-icon>
         </nuxt-link>
+      </v-col>
+      <v-col cols="6">
+        <number-pokemon v-if="$vuetify.breakpoint.smAndDown"></number-pokemon>
       </v-col>
     </v-row>
     <v-row align="center" justify="center">
@@ -16,7 +19,7 @@
         </h1>
       </v-col>
       <button-type></button-type>
-      <number-pokemon></number-pokemon>
+      <number-pokemon v-if="$vuetify.breakpoint.mdAndUp"></number-pokemon>
     </v-row>
   </div>
 </template>
