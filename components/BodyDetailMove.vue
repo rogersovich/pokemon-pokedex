@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row align="center">
+    <v-row>
       <v-col cols="12" sm="12" md="12">
         <h1
           class="tw-text-2xl tw-capitalize tw-text-left tw-leading-tight tw-font-medium"

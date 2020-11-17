@@ -38,7 +38,7 @@ export const getLocation = async function ({ commit }, payload) {
     const { data } = await this.$axios.get(`${END_POINT}/${payload}`)
 
     if (data.id === 1) {
-      const prev = 954
+      const prev = 781
       const dataPrev = await this.$axios.get(`${END_POINT}/${prev}`)
       commit('SET_LOCATION_PREV', dataPrev.data)
     } else {
@@ -47,7 +47,7 @@ export const getLocation = async function ({ commit }, payload) {
       commit('SET_LOCATION_PREV', dataPrev.data)
     }
 
-    if (data.id === 954) {
+    if (data.id === 781) {
       const next = 1
       const dataNext = await this.$axios.get(`${END_POINT}/${next}`)
       commit('SET_LOCATION_NEXT', dataNext.data)
