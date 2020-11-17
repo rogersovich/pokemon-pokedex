@@ -10,22 +10,22 @@
         <h1
           class="tw-text-6xl tw-text-gray-900 tw-text-left tw-leading-tight tw-font-medium"
         >
-          Moves
+          Abilities
         </h1>
         <v-text-field
           v-model="search"
           :disabled="loading"
           hide-details="auto"
-          label="Cari nama move disini"
+          label="Cari nama ability disini"
           append-outer-icon="mdi-refresh"
           @keypress.enter="searchData()"
-          @click:append-outer="getAllMoves(), clearInput()"
+          @click:append-outer="getAllAbilities(), clearInput()"
         ></v-text-field>
       </v-col>
     </v-row>
     <v-row>
       <v-col
-        v-for="(data, i) in $store.state.move.moves"
+        v-for="(data, i) in $store.state.ability.abilities"
         :key="i"
         cols="12"
         sm="6"
@@ -47,7 +47,7 @@
                 nuxt
                 block
                 color="#fff"
-                :to="{ name: 'move-slug', params: { slug: data.name } }"
+                :to="{ name: 'ability-slug', params: { slug: data.name } }"
                 class="tw-my-2 tw-font-normal tw-font-regular tw-normal-case tw-text-lg tw-tracking-wide tw-text-gray-900"
               >
                 Detail
@@ -60,9 +60,9 @@
     <div class="text-center tw-mt-4">
       <v-btn
         v-if="
-          $store.state.move.next !== null &&
+          $store.state.ability.next !== null &&
           !loading &&
-          !$store.state.move.search
+          !$store.state.ability.search
         "
         depressed
         large
@@ -73,7 +73,7 @@
       >
         Load More
       </v-btn>
-      <v-btn v-if="loading && !$store.state.move.search" text large dark>
+      <v-btn v-if="loading && !$store.state.ability.search" text large dark>
         <lottie v-if="loading" :height="150" :options="lottieOptions" />
       </v-btn>
     </div>
@@ -99,19 +99,19 @@ export default {
     clearInput() {
       this.search = ''
     },
-    async getAllMoves() {
-      await this.$store.dispatch('move/getMoves')
+    async getAllAbilities() {
+      await this.$store.dispatch('ability/getAbilities')
     },
     async loadMore() {
       this.loading = true
-      const urlNext = this.$store.state.move.next.split('?')[1]
-      await this.$store.dispatch('move/addMoveMore', urlNext)
+      const urlNext = this.$store.state.ability.next.split('?')[1]
+      await this.$store.dispatch('ability/addAbilityMore', urlNext)
       this.page++
       this.loading = false
     },
     async searchData() {
       this.loading = true
-      await this.$store.dispatch('move/searchMove', this.search)
+      await this.$store.dispatch('ability/searchAbility', this.search)
       this.loading = false
     },
   },
