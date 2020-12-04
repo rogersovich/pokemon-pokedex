@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  layout: 'detail',
+  layout: 'pokemon',
   validate({ params }) {
     // Must be a number
     return /([-_]*[a-zA-Z0-9]+([-_]*[a-zA-Z0-9]+)*)/.test(params.slug)
